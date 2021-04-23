@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import { LoginForm } from './components/login.form';
+import { JsonPeerId, useIdentity } from './hooks/useIdentity';
+import { useIPFS } from './hooks/useIPFS';
 
 function App() {
+  const [loginError, setLoginError] = useState<string | undefined>();
+  const [peerId, setPeerId] = useState<JsonPeerId | undefined>()
+
+  const identity = useIdentity()
+  const ipfs = useIPFS()
+
+  useEffect(() => {
+    const createIPFS = async () => {
+      if (peerId) {
+        const bootstrapPeers = await (await fetch('http://localhost:5010/peers')).json()
+        console.log('peers', bootstrapPeers)
+        const peer = await ipfs(peerId, bootstrapPeers)
+        console.log('me', await peer.id())
+      }
+    }
+    createIPFS()
+  }, [peerId, ipfs])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <header className="App-header"> */}
+        <LoginForm
+          identity={identity}
+          onError={(err) => {
+            setPeerId(undefined)
+            setLoginError(err)
+          }}
+          onSubmit={async (key) => {
+            setLoginError(undefined)
+            setPeerId(key)
+          }}
+        />
+        {loginError && <p style={{ color: 'red' }}>{loginError}</p>}
+        {peerId && <p style={{ color: 'green' }}>{peerId.id}</p>}
+      {/* </header> */}
     </div>
   );
 }
