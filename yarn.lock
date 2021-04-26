@@ -767,6 +767,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/bn.js@*":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@types/bn.js/-/bn.js-5.1.0.tgz#32c5d271503a12653c62cf4d2b45e6eab8cebc68"
+  integrity sha512-QSSVYj7pYFN49kW77o2s9xTCwZ8F2xLbjLLSEVh8D2F4JUhZtPAGOFLTD+ffqksBx/u4cE/KImFjyhqCjn/LIA==
+  dependencies:
+    "@types/node" "*"
+
 "@types/component-emitter@^1.2.10":
   version "1.2.10"
   resolved "https://registry.npmjs.org/@types/component-emitter/-/component-emitter-1.2.10.tgz"
@@ -787,6 +794,22 @@
   resolved "https://registry.npmjs.org/@types/debug/-/debug-4.1.5.tgz"
   integrity sha512-Q1y515GcOdTHgagaVFhHnIFQ38ygs/kmxdNpvpou+raI9UO3YZcHDngBSYKQklcKlvA7iuQlmIKbzvmxcOE9CQ==
 
+"@types/elliptic@^6.4.6":
+  version "6.4.12"
+  resolved "https://registry.yarnpkg.com/@types/elliptic/-/elliptic-6.4.12.tgz#e8add831f9cc9a88d9d84b3733ff669b68eaa124"
+  integrity sha512-gP1KsqoouLJGH6IJa28x7PXb3cRqh83X8HCLezd2dF+XcAIMKYv53KV+9Zn6QA561E120uOqZBQ+Jy/cl+fviw==
+  dependencies:
+    "@types/bn.js" "*"
+
+"@types/events@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
+  integrity sha512-KEIlhXnIutzKwRbQkGWb/I4HFqBuUykAdHgDED6xqwXJfONCjF5VoE0cXEiurh3XauygxzeDzgtXUqvLkxFzzA==
+
+"@types/ipfs@git+https://github.com/lukas2005/types-ipfs.git":
+  version "0.23.6"
+  resolved "git+https://github.com/lukas2005/types-ipfs.git#fb4bd2c5780810b8355356f2f683064008b60053"
+
 "@types/long@^4.0.1":
   version "4.0.1"
   resolved "https://registry.npmjs.org/@types/long/-/long-4.0.1.tgz"
@@ -801,6 +824,15 @@
   version "13.13.50"
   resolved "https://registry.npmjs.org/@types/node/-/node-13.13.50.tgz"
   integrity sha512-y7kkh+hX/0jZNxMyBR/6asG0QMSaPSzgeVK63dhWHl4QAXCQB8lExXmzLL6SzmOgKHydtawpMnNhlDbv7DXPEA==
+
+"@types/orbit-db@https://github.com/orbitdb/orbit-db-types.git":
+  version "1.0.0"
+  resolved "https://github.com/orbitdb/orbit-db-types.git#8e8fc870213f7a758468317c5b2918b36bd27ee6"
+  dependencies:
+    "@types/elliptic" "^6.4.6"
+    "@types/events" "^1.2.0"
+    "@types/ipfs" "git+https://github.com/lukas2005/types-ipfs.git"
+    orbit-db "git+https://github.com/orbitdb/orbit-db.git"
 
 "@types/readable-stream@^2.3.9":
   version "2.3.9"
@@ -3332,7 +3364,7 @@ ipfs-http-client@^47.0.1:
 
 ipfs-http-client@^49.0.4:
   version "49.0.4"
-  resolved "https://registry.npmjs.org/ipfs-http-client/-/ipfs-http-client-49.0.4.tgz"
+  resolved "https://registry.yarnpkg.com/ipfs-http-client/-/ipfs-http-client-49.0.4.tgz#a7b5a696ab755ce1e822240e1774caab6cffa117"
   integrity sha512-qgWbkcB4glQrUkE2tZR+GVXyrO6aJyspWBjyct/6TzrhCHx7evjz+kUTK+wNm4S9zccUePEml5VNZUmUhoQtbA==
   dependencies:
     abort-controller "^3.0.0"
@@ -5774,7 +5806,7 @@ orbit-db-feedstore@~1.12.0:
   dependencies:
     orbit-db-eventstore "~1.12.0"
 
-orbit-db-identity-provider@~0.3.0, orbit-db-identity-provider@~0.3.1:
+orbit-db-identity-provider@^0.3.1, orbit-db-identity-provider@~0.3.0, orbit-db-identity-provider@~0.3.1:
   version "0.3.1"
   resolved "https://registry.npmjs.org/orbit-db-identity-provider/-/orbit-db-identity-provider-0.3.1.tgz"
   integrity sha512-kR6uUCovNecTTPTDsCkm07VEEg1nozx5bz0/ZUO7Oo+0EhCACPO9DZ3g5Wy9bPBHyaaRYqcocQfqAvTdfwyWLQ==
@@ -5845,6 +5877,30 @@ orbit-db@^0.26.1:
   version "0.26.1"
   resolved "https://registry.npmjs.org/orbit-db/-/orbit-db-0.26.1.tgz"
   integrity sha512-bp0oJdjg94Lad1Mp7XRwFatUwFgprbNTxyOuqSb8tWcWWdxWlYvG/ez9DogR9I4Lc5mbPrC7MbWeVcBIu+AeQw==
+  dependencies:
+    cids "^1.0.0"
+    ipfs-pubsub-1on1 "~0.0.6"
+    is-node "^1.0.2"
+    localstorage-down "^0.6.7"
+    logplease "^1.2.14"
+    multihashes "~3.0.1"
+    orbit-db-access-controllers "^0.3.0"
+    orbit-db-cache "~0.3.0"
+    orbit-db-counterstore "~1.12.0"
+    orbit-db-docstore "~1.12.0"
+    orbit-db-eventstore "~1.12.0"
+    orbit-db-feedstore "~1.12.0"
+    orbit-db-identity-provider "~0.3.0"
+    orbit-db-io "~0.3.0"
+    orbit-db-keystore "~0.3.0"
+    orbit-db-kvstore "~1.12.0"
+    orbit-db-pubsub "~0.6.0"
+    orbit-db-storage-adapter "~0.5.3"
+    orbit-db-store "~4.0.1"
+
+"orbit-db@git+https://github.com/orbitdb/orbit-db.git":
+  version "0.26.1"
+  resolved "git+https://github.com/orbitdb/orbit-db.git#ef55777dd22d8eb70ac3c9606e0395b3a1fa11b1"
   dependencies:
     cids "^1.0.0"
     ipfs-pubsub-1on1 "~0.0.6"

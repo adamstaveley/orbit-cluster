@@ -12,7 +12,12 @@
   "dependencies": {
     "express": "^4.17.1",
     "ipfs": "^0.54.4",
+    "ipfs-http-client": "^49.0.4",
     "node-fetch": "^2.6.1",
-    "orbit-db": "^0.26.1"
+    "orbit-db": "^0.26.1",
+    "orbit-db-identity-provider": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/orbit-db": "https://github.com/orbitdb/orbit-db-types.git"
   }
 }
