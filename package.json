@@ -13,6 +13,10 @@
     "express": "^4.17.1",
     "ipfs": "^0.54.4",
     "node-fetch": "^2.6.1",
-    "orbit-db": "^0.26.1"
+    "orbit-db": "^0.26.1",
+    "tcp-port-used": "^1.0.2"
+  },
+  "devDependencies": {
+    "ipfs-core-types": "^0.3.1"
   }
 }

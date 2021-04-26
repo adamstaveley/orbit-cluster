@@ -5,7 +5,9 @@ export const useIPFS = () => {
     return async (peerId: JsonPeerId, boostrapPeers: string[]) => IPFS.create({
         config: {
             // defaults in ipfs-core/src/runtime/config-browser.js
-            Addresses: {},
+            Addresses: {
+							// Gateway: `/ip4/127.0.0.1/tcp/9090`
+						},
             Discovery: {
                 MDNS: {
                     Enabled: false,
