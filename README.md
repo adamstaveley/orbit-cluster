@@ -34,8 +34,8 @@ ipfs --config /tmp/node1 daemon
 
 Test they are connected:
 ```
-ipfs --config /tmp/node0 bootstrap peers
-ipfs --config /tmp/node0 bootstrap peers
+ipfs --config /tmp/node0 swarm peers
+ipfs --config /tmp/node0 swarm peers
 ```
 
 5. Run bootstrapper
