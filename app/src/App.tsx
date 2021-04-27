@@ -22,7 +22,6 @@ function App() {
       if (peerId && !db) {
         const peers = await (await fetch('http://localhost:5010/peers/ws')).json()
         const peer = await ipfs(peerId, peers)
-        console.log('me', await peer.id())
         setDb(await orbit(peer))
       }
     }
